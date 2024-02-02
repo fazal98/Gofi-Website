@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "inter";
+  src: url("/fonts/Inter-Bold.woff");
+}
+
+@font-face {
+  font-family: "roboto";
+  src: url("/fonts/Roboto-Regular.woff");
+}
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Fjalla One', sans-serif;
+  }
+
+  p {
+    font-family: "roboto";
+  }
+
+  button{
+    font-family: "inter";
+    display: block;
+  }
+}
+
+@layer utilities {
+  .font-inter {
+    font-family: "inter";
+  }
+
+  .font-roboto {
+    font-family: "roboto";
+  }
+
+  .underline-navitems {
+    text-decoration: underline 2px solid;
+    text-underline-offset: 7px;
+    @apply decoration-tertiary;
+  }
+}
+
+
+/* grid-template-columns: 4rem auto;
+  place-items: center center; */
