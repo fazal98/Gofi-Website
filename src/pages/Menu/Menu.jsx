@@ -1,4 +1,4 @@
-import React, { memo, useState } from 'react'
+import React, { memo, useEffect, useState } from 'react'
 import FoodItem from './FoodItem/FoodItem'
 import { useParams } from 'react-router-dom'
 import { IoClose } from "react-icons/io5";
@@ -8,6 +8,10 @@ const Menu = () => {
   const { categoryId } = useParams();
   const [whichCategory, setWhichCategory] = useState(categoryId);
   const [menuOpen, setMenuOpen] = useState(false)
+
+  useEffect(()=>{
+    window.scrollTo({top : 0})
+  },[])
 
   const openOrNot = menuOpen ? "tablet:translate-x-0" : "tablet:-translate-x-[40rem]";
 
@@ -31,7 +35,7 @@ const Menu = () => {
     ],
     3: [
       { id: 13, name: "Grilled Chicken Breast", price: 12.99, imgUrl: "/menu-imgs/non-veg/non-veg1.webp" },
-      { id: 14, name: "Beef Tacos", price: 9.50, imgUrl: "/menu-imgs/non-veg/non-veg2.webp" },
+      { id: 14, name: "Chicken Tacos", price: 9.50, imgUrl: "/menu-imgs/non-veg/non-veg2.webp" },
       { id: 15, name: "Lamb Kebabs", price: 14.99, imgUrl: "/menu-imgs/non-veg/non-veg3.webp" },
       { id: 16, name: "Shrimp Scampi Pasta", price: 16.75, imgUrl: "/menu-imgs/non-veg/non-veg4.webp" },
       { id: 17, name: "BBQ Pulled Pork Sandwich", price: 8.99, imgUrl: "/menu-imgs/non-veg/non-veg5.webp" },
@@ -76,7 +80,7 @@ const Menu = () => {
           </div>
 
           {/* food items */}
-          <div className="grid grid-cols-3 grid-rows-auto gap-5 py-5 px-5 gap-y-7 h-[700px] overflow-auto laptop:grid-cols-2 tablet:mt-5 mobile-lg:grid-cols-1 mobile-md:px-2">
+          <div className="grid grid-cols-3 grid-rows-auto gap-5 py-5 px-5 gap-y-7 h-[700px] overflow-auto laptop:grid-cols-2 tablet:mt-5 mobile-lg:grid-cols-1 mobile-md:px-2 mobile-md:h-auto">
             <button onClick={() => setMenuOpen(true)}
               class="hidden items-center px-4 py-2 bg-primary shadow-md shadow-black transition ease-in-out delay-75 hover:bg-red-700 text-white text-sm font-medium rounded-md hover:-translate-y-1 hover:scale-110 active:bg-black active:text-white tablet:inline-block tablet:absolute tablet:-top-9"
             >
